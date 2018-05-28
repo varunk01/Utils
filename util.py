@@ -11,6 +11,20 @@ def count_item(i_ls,i_item):
        returns -1 if item not found
     """
     return dict(Counter(i_ls)).get(i_item,-1)
+	
+
+def unique_items_inorder(in_ls):
+    """
+    returns the unique/distinct items from input list
+    in order of occurance
+    """
+    unique = dict(Counter(in_ls))
+    ls =[]
+    for key,value in unique.items():
+        if value ==1:
+            ls.append(key)
+    return ls
+	
 
 def filter_over(i_ls,i_key):
     """returns a list filtered down to all the
@@ -53,13 +67,13 @@ def filter_NaN(i_ls):
 def get_commons(i_lsa,i_lsb):
     """returns a list of common items between two lists.
     """
-    return list(set([a_i for a_i in i_lsa if a_i in i_lsb]))
-
+    return list(set(i_lsa) & set(i_lsb))
+	
 
 def get_distinct(i_lsa,i_lsb):
     """returns a list of distinct items between two lists.
     """
-    return list(set(set(i_lsa) - set(i_lsb)).union(set(i_lsb) - set(i_lsa)))
+    return list(set(i_lsa) ^ set(i_lsb))
 	
 	
 def sort_dict_bykey(i_dict,i_reverse = False):
@@ -144,24 +158,22 @@ def print_dict(i_dict):
         print(key,value)	
 		
 
-def get_choice(optext):
+def get_choice():
     """
     return an integer input from the user
     """
     try:
-       choice = int(input(optext))
+       choice = int(input('enter a number: '))
     except ValueError:
        return get_choice()
     return choice
 
 def reverse_string(in_val):
     """
-    reverses the user input (word by word)
+	reverses the user input (word by word)
     """
     for i in in_val[::-1]:
         print(i,end = ' ')
 		
 if __name__  == '__main__':
-    print(get_choice('here now:'))
-
-
+    pass
