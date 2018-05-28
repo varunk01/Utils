@@ -51,10 +51,10 @@ def filter_NaN(i_ls):
 
 
 def get_commons(i_lsa,i_lsb):
-	"""returns a list of common items between two lists.
-	"""
+    """returns a list of common items between two lists.
+    """
     return list(set([a_i for a_i in i_lsa if a_i in i_lsb]))
-	
+
 
 def get_distinct(i_lsa,i_lsb):
     """returns a list of distinct items between two lists.
@@ -144,23 +144,24 @@ def print_dict(i_dict):
         print(key,value)	
 		
 
-def get_choice():
+def get_choice(optext):
     """
     return an integer input from the user
     """
     try:
-       choice = int(input('enter a number: '))
+       choice = int(input(optext))
     except ValueError:
        return get_choice()
     return choice
 
 def reverse_string(in_val):
     """
-	reverses the user input (word by word)
-	"""
+    reverses the user input (word by word)
+    """
     for i in in_val[::-1]:
         print(i,end = ' ')
 		
-if __name__  == '__main__': pass
+if __name__  == '__main__':
+    print(get_choice('here now:'))
 
 
